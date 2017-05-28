@@ -1,13 +1,74 @@
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+html,
+body {
+  background: #fff;
+  height: 100%
+  width: 100%;
+  position: relative;
 }
 
-td {
+h1 {
+  font-size: 20px;
+}
+/*table.pp-table tr, td {
   border: 1px solid black;
   padding: 4px;
   text-align: center;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+}*/
+#pp-grid {
+  display: inline-block;
+  width: 100px;
 }
+
+.divRowGrid {
+  display: table-row;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.divCellGrid {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+#pp-colorTable {
+  display: inline-block;
+  width: 100px;
+}
+
+.divRowColor {
+  display: table-row;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.divCellColor {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 4px;
+}
+/*#pp-grid {
+  display: inline-block;
+  width: 100px;
+
+}
+
+.divRow {
+  display: table-row;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+#divCell {
+  display: table-cell;
+  border: 1px solid black;
+  padding: 4px;
+}
+
+#pp-colorTable {
+  display: inline-block;
+  width: 200px;
+}*/
