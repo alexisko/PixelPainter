@@ -1,9 +1,10 @@
 html,
 body {
   background: #fff;
-  height: 100%
-  width: 100%;
   position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
 h1 {
@@ -17,21 +18,34 @@ h1 {
   width: 40px;
   height: 40px;
 }*/
+#pixelPainter {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #333;
+}
+
 #pp-grid {
   display: inline-block;
-  width: 100px;
+  border: 1px solid black;
+  float: center;
 }
 
 .divRowGrid {
   display: table-row;
-  border: 1px solid black;
   padding: 4px;
 }
 
 .divCellGrid {
   display: table-cell;
-  border: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
   padding: 4px;
+}
+
+#pp-grid:first-child {
+  border-left: 0px;
+  border-bottom: 0px;
 }
 
 #pp-colorTable {
@@ -41,34 +55,12 @@ h1 {
 
 .divRowColor {
   display: table-row;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 4px;
 }
 
 .divCellColor {
   display: table-cell;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 4px;
 }
-/*#pp-grid {
-  display: inline-block;
-  width: 100px;
-
-}
-
-.divRow {
-  display: table-row;
-  border: 1px solid black;
-  padding: 4px;
-}
-
-#divCell {
-  display: table-cell;
-  border: 1px solid black;
-  padding: 4px;
-}
-
-#pp-colorTable {
-  display: inline-block;
-  width: 200px;
-}*/

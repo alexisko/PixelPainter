@@ -3,12 +3,14 @@ var curColor;
 
 //functions
 function canvas() {
-  var ppTable = document.createElement("div");
-  ppTable.setAttribute("id", "pp-grid");
-  document.getElementById("pixelPainter").appendChild(ppTable);
+  var grid = document.createElement("div");
+  grid.setAttribute("id", "pp-grid");
+  document.getElementById("pixelPainter").appendChild(grid);
 
+  var table = [];
+
+  //creates the grid for users to draw on
   function createCanvas(height, width) {
-    var table = [];
     for(var i = 0; i < height; i++) { //rows
       table[i] = document.createElement("div");
       document.getElementById('pp-grid').appendChild(table[i]);
@@ -26,24 +28,36 @@ function canvas() {
     }
   }
 
+  //change background to the current color
   function changeBackgroundColor() {
     event.currentTarget.style.backgroundColor = curColor;
   }
 
+  //sets all cell's background color to white
+  function clear() {
+    for(var i = 0; i < table.length; i++) {
+      for(var j = 0; j < table[i].length; j++) {
+        table[i][j].style.backgroundColor = 'white';
+      }
+    }
+  }
+
   return {
     createCanvas: createCanvas,
+    clear: clear,
     changeBackgroundColor: changeBackgroundColor
   };
 }
 
 function colorPalette() {
-  var ppTable = document.createElement("div");
-  ppTable.setAttribute("id", "pp-colorTable");
-  document.getElementById("pixelPainter").appendChild(ppTable);
+  var palette = document.createElement("div");
+  palette.setAttribute("id", "pp-colorTable");
+  document.getElementById("pixelPainter").appendChild(palette);
 
+  //creates a color palette
   var table = [];
-  var height = 5;
-  var width = 5;
+  var height = 5; //need to fix later
+  var width = 5;  //need to fix later
   for(var i = 0; i < height; i++) { //rows
     table[i] = document.createElement("div");
     document.getElementById('pp-colorTable').appendChild(table[i]);
@@ -73,11 +87,32 @@ function colorPalette() {
         return color;
   }
 
+  //sets the current color to whatever the user clicked
   function changeColor() {
     curColor = event.currentTarget.style.backgroundColor;
   }
 }
 
 var canvas = canvas();
-canvas.createCanvas(5, 5);
+canvas.createCanvas(30, 30);
 var colorPalette = colorPalette();
+
+//clear button
+var clearBtn = document.createElement("button");
+clearBtn.innerHTML = "clear";
+clearBtn.type = "button";
+document.getElementById("pixelPainter").appendChild(clearBtn);
+
+clearBtn.addEventListener('click', function(event) {
+  canvas.clear();
+});
+
+//erase button
+var eraseBtn = document.createElement("button");
+eraseBtn.innerHTML = "erase";
+eraseBtn.type = "button";
+document.getElementById("pixelPainter").appendChild(eraseBtn);
+
+eraseBtn.addEventListener('click', function(event) {
+  curColor = 'white';
+});
