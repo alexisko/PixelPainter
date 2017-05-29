@@ -1,5 +1,6 @@
 //global variable
 var curColor;
+var colorBox;
 
 //functions
 function canvas() {
@@ -50,14 +51,18 @@ function canvas() {
 }
 
 function colorPalette() {
+  colorBox = document.createElement("div");
+  colorBox.setAttribute("id", "colorBox");
+  document.getElementById("colorPalette").appendChild(colorBox);
+
   var palette = document.createElement("div");
   palette.setAttribute("id", "pp-colorTable");
-  document.getElementById("pixelPainter").appendChild(palette);
+  document.getElementById("colorPalette").appendChild(palette);
 
   //creates a color palette
   var table = [];
-  var height = 5; //need to fix later
-  var width = 5;  //need to fix later
+  var height = 3; //need to fix later
+  var width = 20;  //need to fix later
   for(var i = 0; i < height; i++) { //rows
     table[i] = document.createElement("div");
     document.getElementById('pp-colorTable').appendChild(table[i]);
@@ -90,18 +95,19 @@ function colorPalette() {
   //sets the current color to whatever the user clicked
   function changeColor() {
     curColor = event.currentTarget.style.backgroundColor;
+    colorBox.style.backgroundColor = curColor;
   }
 }
 
 var canvas = canvas();
-canvas.createCanvas(30, 30);
+canvas.createCanvas(20, 20);
 var colorPalette = colorPalette();
 
 //clear button
 var clearBtn = document.createElement("button");
 clearBtn.innerHTML = "clear";
 clearBtn.type = "button";
-document.getElementById("pixelPainter").appendChild(clearBtn);
+document.getElementById("buttons").appendChild(clearBtn);
 
 clearBtn.addEventListener('click', function(event) {
   canvas.clear();
@@ -111,8 +117,19 @@ clearBtn.addEventListener('click', function(event) {
 var eraseBtn = document.createElement("button");
 eraseBtn.innerHTML = "erase";
 eraseBtn.type = "button";
-document.getElementById("pixelPainter").appendChild(eraseBtn);
+document.getElementById("buttons").appendChild(eraseBtn);
 
 eraseBtn.addEventListener('click', function(event) {
+  curColor = 'white';
+  colorBox.style.backgroundColor = curColor;
+});
+
+//save button
+var saveBtn = document.createElement("button");
+saveBtn.innerHTML = "save";
+saveBtn.type = "button";
+document.getElementById("buttons").appendChild(saveBtn);
+
+saveBtn.addEventListener('click', function(event) {
   curColor = 'white';
 });

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Kumar+One');
+
 html,
 body {
   background: #fff;
@@ -8,20 +10,37 @@ body {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Kumar One', cursive;
+  color: #000;
 }
-/*table.pp-table tr, td {
-  border: 1px solid black;
-  padding: 4px;
-  text-align: center;
-  vertical-align: middle;
-  width: 40px;
-  height: 40px;
-}*/
+
 #pixelPainter {
   width: 200px;
   margin: 0 auto;
   background-color: #333;
+  padding: 5px;
+}
+
+#colorPalette {
+  background-color: #333;
+  margin: 0 auto;
+  padding: 5px;
+  width: 200px;
+}
+
+#colorBox {
+  background-color: #fff;
+  display: inline-block;
+  height: 24px;
+  width: 23px;
+}
+
+#buttons {
+  background-color: #333;
+  margin: 0 auto;
+  padding: 5px;
+  width: 200px;
 }
 
 #pp-grid {
@@ -50,17 +69,14 @@ h1 {
 
 #pp-colorTable {
   display: inline-block;
-  width: 100px;
 }
 
 .divRowColor {
   display: table-row;
-  /*border: 1px solid black;*/
   padding: 4px;
 }
 
 .divCellColor {
   display: table-cell;
-  /*border: 1px solid black;*/
   padding: 4px;
 }
