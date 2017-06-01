@@ -2,11 +2,9 @@
 
 html,
 body {
-  background: #fff;
-  position: relative;
-  height: 100%;
-  width: 100%;
+  overflow-x: hidden;
   text-align: center;
+  background-color: #a7d1ed;
 }
 
 h1 {
@@ -15,15 +13,44 @@ h1 {
   color: #000;
 }
 
+img {
+  height: 142px;
+}
+
 #pixelPainter {
+  text-align: center;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #a7d1ed;
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+}
+
+#sizeDiv {
   width: 200px;
   margin: 0 auto;
   background-color: #333;
+  font-size: 12px;
+  padding: 0px;
+}
+
+#plusSizeBtn, #minusSizeBtn,
+#height, #times, #width {
+  display: inline-block;
+}
+
+#canvasDiv {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #a7d1ed;
   padding: 5px;
 }
 
-#colorPalette {
-  background-color: #333;
+#colorDiv {
+  background-color: #a7d1ed;
   margin: 0 auto;
   padding: 5px;
   width: 200px;
@@ -36,16 +63,21 @@ h1 {
   width: 23px;
 }
 
-#buttons {
-  background-color: #333;
+#buttonDiv {
+  background-color: #a7d1ed;
   margin: 0 auto;
   padding: 5px;
   width: 200px;
 }
 
-#pp-grid {
+#gridDiv {
   display: inline-block;
   border: 1px solid black;
+}
+
+#pp-grid {
+  display: inline-block;
+  border-collapse: collapse;
   float: center;
 }
 
@@ -56,15 +88,8 @@ h1 {
 
 .divCellGrid {
   display: table-cell;
-  border-left: 1px solid black;
-  border-bottom: 1px solid black;
-  border-collapse: collapse;
+  border: 0.5px solid #d8d8d8;
   padding: 4px;
-}
-
-#pp-grid:first-child {
-  border-left: 0px;
-  border-bottom: 0px;
 }
 
 #pp-colorTable {
