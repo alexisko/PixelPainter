@@ -13,10 +13,7 @@ h1 {
   color: #000;
 }
 
-img {
-  height: 142px;
-}
-
+/*Contains the entire canvas and color palette*/
 #pixelPainter {
   text-align: center;
   min-width: 100%;
@@ -29,7 +26,7 @@ img {
   z-index: 1;
 }
 
-#sizeDiv {
+/*#sizeDiv {
   width: 200px;
   margin: 0 auto;
   background-color: #333;
@@ -40,29 +37,10 @@ img {
 #plusSizeBtn, #minusSizeBtn,
 #height, #times, #width {
   display: inline-block;
-}
+}*/
 
-#canvasDiv {
-  width: 200px;
-  margin: 0 auto;
-  background-color: #a7d1ed;
-  padding: 5px;
-}
 
-#colorDiv {
-  background-color: #a7d1ed;
-  margin: 0 auto;
-  padding: 5px;
-  width: 200px;
-}
-
-#colorBox {
-  background-color: #fff;
-  display: inline-block;
-  height: 24px;
-  width: 23px;
-}
-
+/*CSS for the buttons*/
 #buttonDiv {
   background-color: #a7d1ed;
   margin: 0 auto;
@@ -70,11 +48,22 @@ img {
   width: 200px;
 }
 
+/*CSS for the canvas*/
+/*Div that surrounds the table/grid*/
+#canvasDiv {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #a7d1ed;
+  padding: 5px;
+}
+
+/*Div that surrounds the table/grid to add 1px border*/
 #gridDiv {
   display: inline-block;
   border: 1px solid black;
 }
 
+/*div contains the actual table/grid*/
 #pp-grid {
   display: inline-block;
   border-collapse: collapse;
@@ -90,6 +79,21 @@ img {
   display: table-cell;
   border: 0.5px solid #d8d8d8;
   padding: 4px;
+}
+
+/*CSS for the Color Palette*/
+#colorDiv {
+  background-color: #a7d1ed;
+  margin: 0 auto;
+  padding: 5px;
+  width: 200px;
+}
+
+#colorBox {
+  background-color: #fff;
+  display: inline-block;
+  height: 24px;
+  width: 23px;
 }
 
 #pp-colorTable {
