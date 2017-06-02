@@ -7,11 +7,15 @@ function pixelPainter() {
   var savedArray = [];
   var colorTable = [];
 
+  var container = document.createElement("div");
+  container.setAttribute("id", "container");
+  document.getElementById("pixelPainter").appendChild(container);
+
   //CANVAS FUNCTIONS
 
   var canvasDiv = document.createElement("div");
   canvasDiv.setAttribute("id", "canvasDiv");
-  document.getElementById("pixelPainter").appendChild(canvasDiv);
+  document.getElementById("container").appendChild(canvasDiv);
 
   var gridDiv = document.createElement("div");
   gridDiv.setAttribute("id", "gridDiv");
@@ -88,7 +92,7 @@ function pixelPainter() {
 
   colorDiv = document.createElement("div");
   colorDiv.setAttribute("id", "colorDiv");
-  document.getElementById("pixelPainter").appendChild(colorDiv);
+  document.getElementById("container").appendChild(colorDiv);
 
   colorBox = document.createElement("div");
   colorBox.setAttribute("id", "colorBox");
@@ -155,55 +159,64 @@ function pixelPainter() {
   };
 }
 
-// function buttons() {
-//   var buttonDiv = document.createElement("div");
-//   buttonDiv.setAttribute("id", "buttonDiv");
-//   document.getElementById("pixelPainter").appendChild(buttonDiv);
-
-//   //clear button
-//   var clearBtn = document.createElement("button");
-//   clearBtn.innerHTML = "clear";
-//   clearBtn.type = "button";
-//   document.getElementById("buttonDiv").appendChild(clearBtn);
-
-//   clearBtn.addEventListener('click', function(event) {
-//     canvas.clear();
-//   });
-
-//   //erase button
-//   var eraseBtn = document.createElement("button");
-//   eraseBtn.innerHTML = "erase";
-//   eraseBtn.type = "button";
-//   document.getElementById("buttonDiv").appendChild(eraseBtn);
-
-//   eraseBtn.addEventListener('click', function(event) {
-//     curColor = 'white';
-//     colorBox.style.backgroundColor = curColor;
-//   });
-
-//   //save button
-//   var saveBtn = document.createElement("button");
-//   saveBtn.innerHTML = "save";
-//   saveBtn.type = "button";
-//   document.getElementById("buttonDiv").appendChild(saveBtn);
-
-//   saveBtn.addEventListener('click', function(event) {
-//     canvas.save(20, 20);
-//   });
-
-//   //load button
-//   var loadBtn = document.createElement("button");
-//   loadBtn.innerHTML = "load";
-//   loadBtn.type = "button";
-//   document.getElementById("buttonDiv").appendChild(loadBtn);
-
-//   loadBtn.addEventListener('click', function(event) {
-//     canvas.loadSave(20, 20);
-//   });
-// }
-
 var pixelPainter = pixelPainter();
 pixelPainter.createCanvas(20, 20);
 pixelPainter.createColorPalette();
-// var buttons = buttons();
+
+var buttonDiv = document.createElement("div");
+buttonDiv.setAttribute("id", "buttonDiv");
+document.getElementById("container").appendChild(buttonDiv);
+
+var leftBtns = document.createElement("div");
+leftBtns.setAttribute("id", "leftBtns");
+document.getElementById("buttonDiv").appendChild(leftBtns);
+
+var rightBtns = document.createElement("div");
+rightBtns.setAttribute("id", "rightBtns");
+document.getElementById("buttonDiv").appendChild(rightBtns);
+
+//clear button
+var clearBtn = document.createElement("button");
+clearBtn.setAttribute("id", "clearBtn");
+clearBtn.innerHTML = "clear";
+clearBtn.type = "button";
+document.getElementById("buttonDiv").appendChild(clearBtn);
+
+clearBtn.addEventListener('click', function(event) {
+  pixelPainter.clear();
+});
+
+//erase button
+var eraseBtn = document.createElement("button");
+eraseBtn.setAttribute("id", "eraseBtn");
+eraseBtn.innerHTML = "erase";
+eraseBtn.type = "button";
+document.getElementById("leftBtns").appendChild(eraseBtn);
+
+eraseBtn.addEventListener('click', function(event) {
+  curColor = 'white';
+  colorBox.style.backgroundColor = curColor;
+});
+
+//save button
+var saveBtn = document.createElement("button");
+saveBtn.setAttribute("id", "saveBtn");
+saveBtn.innerHTML = "save";
+saveBtn.type = "button";
+document.getElementById("rightBtns").appendChild(saveBtn);
+
+saveBtn.addEventListener('click', function(event) {
+  pixelPainter.save(20, 20);
+});
+
+//load button
+var loadBtn = document.createElement("button");
+loadBtn.setAttribute("id", "loadBtn");
+loadBtn.innerHTML = "load";
+loadBtn.type = "button";
+document.getElementById("rightBtns").appendChild(loadBtn);
+
+loadBtn.addEventListener('click', function(event) {
+  pixelPainter.loadSave(20, 20);
+});
 

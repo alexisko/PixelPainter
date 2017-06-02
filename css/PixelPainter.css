@@ -4,7 +4,7 @@ html,
 body {
   overflow-x: hidden;
   text-align: center;
-  background-color: #a7d1ed;
+  background-color: #f7f7f7;
 }
 
 h1 {
@@ -18,7 +18,6 @@ h1 {
   text-align: center;
   min-width: 100%;
   min-height: 100%;
-  background-color: #a7d1ed;
   position: relative;
   top: 0;
   bottom: 100%;
@@ -26,35 +25,55 @@ h1 {
   z-index: 1;
 }
 
-/*#sizeDiv {
-  width: 200px;
+#container {
+  background-color: #c0bab7;
+  border-radius: 15px;
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
-  background-color: #333;
-  font-size: 12px;
-  padding: 0px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  width: 250px;
 }
-
-#plusSizeBtn, #minusSizeBtn,
-#height, #times, #width {
-  display: inline-block;
-}*/
 
 
 /*CSS for the buttons*/
 #buttonDiv {
-  background-color: #a7d1ed;
+  background-color: #c0bab7;
   margin: 0 auto;
   padding: 5px;
   width: 200px;
+}
+
+#eraseBtn {
+  background-color: #6e6e6e;
+  border-radius: 10px;
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#saveBtn, #loadBtn {
+  background-color: #e13884;
+  border-radius: 10px;
+  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+#leftBtns {
+  width: 100px;
+  float: left;
+}
+
+#rightBtns {
+  width: 100px;
+  float: right;
 }
 
 /*CSS for the canvas*/
 /*Div that surrounds the table/grid*/
 #canvasDiv {
+  background-color: #8e878d;
+  border-radius: 15px;
   width: 200px;
   margin: 0 auto;
-  background-color: #a7d1ed;
-  padding: 5px;
+  padding: 10px;
 }
 
 /*Div that surrounds the table/grid to add 1px border*/
@@ -83,7 +102,7 @@ h1 {
 
 /*CSS for the Color Palette*/
 #colorDiv {
-  background-color: #a7d1ed;
+  background-color: #c0bab7;
   margin: 0 auto;
   padding: 5px;
   width: 200px;
@@ -109,3 +128,15 @@ h1 {
   display: table-cell;
   padding: 4px;
 }
+
+/*#sizeDiv {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #333;
+  font-size: 12px;
+  padding: 0px;
+}
+#plusSizeBtn, #minusSizeBtn,
+#height, #times, #width {
+  display: inline-block;
+}*/
