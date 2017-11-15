@@ -1,142 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Kumar+One');
-
-html,
-body {
-  overflow-x: hidden;
-  text-align: center;
-  background-color: #f7f7f7;
+.canvas {
+  display: flex;
+  flex-direction: row;
 }
 
-h1 {
-  font-size: 25px;
-  font-family: 'Kumar One', cursive;
-  color: #000;
+.divRow {
+  display: flex;
+  flex-direction: column;
 }
 
-/*Contains the entire canvas and color palette*/
-#pixelPainter {
-  text-align: center;
-  min-width: 100%;
-  min-height: 100%;
-  position: relative;
-  top: 0;
-  bottom: 100%;
-  left: 0;
-  z-index: 1;
+.divCell {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid grey;
 }
-
-#container {
-  background-color: #c0bab7;
-  border-radius: 15px;
-  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
-  padding-top: 15px;
-  padding-bottom: 20px;
-  width: 250px;
-}
-
-
-/*CSS for the buttons*/
-#buttonDiv {
-  background-color: #c0bab7;
-  margin: 0 auto;
-  padding: 5px;
-  width: 200px;
-}
-
-#eraseBtn {
-  background-color: #6e6e6e;
-  border-radius: 10px;
-  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-#saveBtn, #loadBtn {
-  background-color: #e13884;
-  border-radius: 10px;
-  box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.2) inset, 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-#leftBtns {
-  width: 100px;
-  float: left;
-}
-
-#rightBtns {
-  width: 100px;
-  float: right;
-}
-
-/*CSS for the canvas*/
-/*Div that surrounds the table/grid*/
-#canvasDiv {
-  background-color: #8e878d;
-  border-radius: 15px;
-  width: 200px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-/*Div that surrounds the table/grid to add 1px border*/
-#gridDiv {
-  display: inline-block;
-  border: 1px solid black;
-}
-
-/*div contains the actual table/grid*/
-#pp-grid {
-  display: inline-block;
-  border-collapse: collapse;
-  float: center;
-}
-
-.divRowGrid {
-  display: table-row;
-  padding: 4px;
-}
-
-.divCellGrid {
-  display: table-cell;
-  border: 0.5px solid #d8d8d8;
-  padding: 4px;
-}
-
-/*CSS for the Color Palette*/
-#colorDiv {
-  background-color: #c0bab7;
-  margin: 0 auto;
-  padding: 5px;
-  width: 200px;
-}
-
-#colorBox {
-  background-color: #fff;
-  display: inline-block;
-  height: 24px;
-  width: 23px;
-}
-
-#pp-colorTable {
-  display: inline-block;
-}
-
-.divRowColor {
-  display: table-row;
-  padding: 4px;
-}
-
-.divCellColor {
-  display: table-cell;
-  padding: 4px;
-}
-
-/*#sizeDiv {
-  width: 200px;
-  margin: 0 auto;
-  background-color: #333;
-  font-size: 12px;
-  padding: 0px;
-}
-#plusSizeBtn, #minusSizeBtn,
-#height, #times, #width {
-  display: inline-block;
-}*/
