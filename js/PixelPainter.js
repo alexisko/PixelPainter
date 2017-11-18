@@ -2,8 +2,17 @@
 var pixelPainter = (function() {
 
   var currentColor;
+  var $currentColorBox;
+  var globalSize;
+  var savedCanvas;
+
+  // apply flex box styling to elements
+  $(document.body).attr({ 'class' : 'align-col' });
+  $('.container').addClass('align-col');
+  // $('#pixelPainter').addClass('align-col');
 
   function createPixelPainter(size) {
+    globalSize = size;
     // CANVAS
     var $canvas = $('<div/>')
     .attr({ 'class': 'canvas' });
@@ -23,6 +32,7 @@ var pixelPainter = (function() {
           id: 'grid-cell' + i + j,
           'class': 'div-cell'
         })
+        .css({ 'background-color' : 'white' })
         .click(changeOnClick)
         .mouseover(changeOnMouseover);
         $('#grid-row' + i).append($col);
@@ -34,7 +44,7 @@ var pixelPainter = (function() {
     .attr({ 'class' : 'color-palette' });
     $('#pixelPainter').append($colorPalette);
 
-    var $currentColorBox = $('<div/>')
+    $currentColorBox = $('<div/>')
     .attr({ 'class' : 'current-color' })
     .css({ 'background-color' : getRandomColor() });
     $($colorPalette).append($currentColorBox);
@@ -51,7 +61,7 @@ var pixelPainter = (function() {
         'class': 'div-row-color'
       });
       $($colors).append($rowColor);
-      for(var b = 0; b < 20; b++) {
+      for(var b = 0; b < 17; b++) {
         // create columns
         var $colColor = $('<div/>').attr({
           id: 'grid-cell-color' + a + b,
@@ -89,13 +99,65 @@ var pixelPainter = (function() {
     .css({ "background-color" : currentColor });
   }
 
+  function save() {
+    savedCanvas = [];
+
+    for(var i = 0; i < globalSize; i++) {
+      savedCanvas[i] = [];
+      for(var j = 0; j < globalSize; j++) {
+        var color = document.getElementById('grid-cell' + i + j).style.backgroundColor;
+        savedCanvas[i][j] = color;
+      }
+    }
+  }
+
+  function load() {
+    for(var i = 0; i < globalSize; i++) {
+      for(var j = 0; j < globalSize; j++) {
+        var color = document.getElementById('grid-cell' + i + j);
+        color.style.backgroundColor = savedCanvas[i][j];
+      }
+    }
+  }
+
   function clear() {
-    $('.divCell').css("background-color","white");
+    $('.div-cell').css("background-color","white");
   }
 
   return {
-    createPixelPainter : createPixelPainter
+    createPixelPainter : createPixelPainter,
+    clear : clear,
+    save : save,
+    load : load
   };
 })();
 
-pixelPainter.createPixelPainter(5);
+var $buttons = $('<div/>')
+  .attr({ 'class' : 'buttons' });
+$('.container').append($buttons);
+
+var $saveBtn = $('<button/>')
+  .addClass(' btn-save animate')
+  .text('SAVE')
+  .click(function() {
+    pixelPainter.save();
+  });
+$($buttons).append($saveBtn);
+
+var $loadBtn = $('<button/>')
+  .addClass(' btn-load animate')
+  .text('LOAD')
+  .click(function() {
+    pixelPainter.load();
+  });
+$($buttons).append($loadBtn);
+
+var $clearBtn = $('<button/>')
+  .addClass(' btn-clear animate')
+  .text('CLEAR')
+  .click(function () {
+    pixelPainter.clear();
+  });
+$($buttons).append($clearBtn);
+
+pixelPainter.createPixelPainter(20);
