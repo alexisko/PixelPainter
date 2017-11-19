@@ -11,11 +11,14 @@ var pixelPainter = (function() {
 
   function createPixelPainter(size) {
     globalSize = size;
+    var $pixelPainterCont = $('<div/>')
+      .addClass('pixel-painter-cont');
+    $('#pixelPainter').append($pixelPainterCont);
 
     // CANVAS
     var $canvas = $('<div/>')
       .attr({ 'class': 'canvas' });
-    $('#pixelPainter').append($canvas);
+    $($pixelPainterCont).append($canvas);
 
     // creating the canvas
     for(var i = 0; i < size; i++) {
@@ -41,7 +44,7 @@ var pixelPainter = (function() {
     // COLOR PALETTE
     var $colorPalette = $('<div/>')
     .attr({ 'class' : 'color-palette' });
-    $('#pixelPainter').append($colorPalette);
+    $($pixelPainterCont).append($colorPalette);
 
     // set the current color
     currentColor = getRandomColor();
@@ -134,9 +137,11 @@ var pixelPainter = (function() {
   };
 })();
 
+pixelPainter.createPixelPainter(20);
+
 var $buttons = $('<div/>')
   .attr({ 'class' : 'buttons' });
-$('.container').append($buttons);
+$('#pixelPainter').append($buttons);
 
 var $saveBtn = $('<button/>')
   .addClass(' btn-save animate')
@@ -162,4 +167,4 @@ var $clearBtn = $('<button/>')
   });
 $($buttons).append($clearBtn);
 
-pixelPainter.createPixelPainter(20);
+
