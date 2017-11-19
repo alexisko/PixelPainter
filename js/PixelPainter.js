@@ -7,18 +7,17 @@ var pixelPainter = (function() {
   var savedCanvas;
 
   // apply flex box styling to elements
-  $(document.body).attr({ 'class' : 'align-col' });
   $('.container').addClass('align-col');
-  // $('#pixelPainter').addClass('align-col');
 
   function createPixelPainter(size) {
     globalSize = size;
+
     // CANVAS
     var $canvas = $('<div/>')
-    .attr({ 'class': 'canvas' });
+      .attr({ 'class': 'canvas' });
     $('#pixelPainter').append($canvas);
 
-    // creating canvas
+    // creating the canvas
     for(var i = 0; i < size; i++) {
       // create rows
       var $row = $('<div/>').attr({
@@ -44,16 +43,19 @@ var pixelPainter = (function() {
     .attr({ 'class' : 'color-palette' });
     $('#pixelPainter').append($colorPalette);
 
+    // set the current color
+    currentColor = getRandomColor();
+
     $currentColorBox = $('<div/>')
     .attr({ 'class' : 'current-color' })
-    .css({ 'background-color' : getRandomColor() });
+    .css({ 'background-color' : currentColor });
     $($colorPalette).append($currentColorBox);
 
     var $colors = $('<div/>')
     .attr({ 'class' : 'color-container'});
     $($colorPalette).append($colors);
 
-    // creating color-palette
+    // creating the color-palette
     for(var a = 0; a < 3; a++) {
       // create rows
       var $rowColor = $('<div/>').attr({
